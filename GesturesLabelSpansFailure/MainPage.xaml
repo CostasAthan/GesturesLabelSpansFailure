@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GesturesLabelSpansFailure.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Gestures don't work!">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Label Text="&#10;" />
+
+            <Label FontSize="Large" HorizontalOptions="Start">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="This is " />
+                        <Span
+                            Text="an ICommand"
+                            TextColor="Blue"
+                            TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenWithICommand}" CommandParameter="https://example.com/" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="&#10;" />
+
+            <Label FontSize="Large" HorizontalOptions="Start">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="This is " />
+                        <Span
+                            Text="a RelayCommand"
+                            TextColor="Blue"
+                            TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenWithRelayCommand}" CommandParameter="https://example.com/" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="&#10;" />
+
+            <Label FontSize="Large" HorizontalOptions="Start">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="This is " />
+                        <Span
+                            Text="a Command"
+                            TextColor="Blue"
+                            TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OppenWithCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="&#10;" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="None of them can get executed, becuase Gestures don't work on Labels' Spans..." />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
